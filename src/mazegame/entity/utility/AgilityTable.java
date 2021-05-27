@@ -12,14 +12,14 @@ public class AgilityTable {
         lookup = theTable;
     }
 
-    public static AgilityTable GetInstance()   // Notice Singleton
+    public static AgilityTable getInstance()   // Notice Singleton
     {
         if (instance == null)
             instance = new AgilityTable(new HashMap<Integer, Integer>());
         return instance;
     }
 
-    public void SetModifier(int agility, int modifier) {
+    public void setModifier(int agility, int modifier) {
         lookup.put(agility, modifier);     
     }
 
