@@ -1,12 +1,22 @@
 package mazegame;
 
 import mazegame.boundary.IMazeData;
+import mazegame.entity.Blacksmith;
+import mazegame.entity.Dragon;
 import mazegame.entity.Exit;
 import mazegame.entity.Location;
 import mazegame.entity.utility.*;
 
 public class HardCodedData implements IMazeData {
 	private Location startUp;
+	private Location riverHill;
+	private Location lake;
+	private Location valley;
+	private Blacksmith weaponary;
+	private Location mountains;
+	private Location westros;
+	private Location citadale;
+	private Blacksmith arsenal;
 
 	public HardCodedData() {
 		createLocations();
@@ -25,15 +35,17 @@ public class HardCodedData implements IMazeData {
 		startUp = new Location("an entry gate to the maze located by the riverside", "Maze Gate");
 
 		// Create location
-		Location riverHill = new Location("a wonderful connection with water and hill", "River Hill");
-		Location lake = new Location("a place where you can heal your pain", "Lake Montana");
-		Location valley = new Location("a place where people live", "Arun Valley");
-		Location weaponary = new Location("a place where you can buy and exchange your weapons", "weaponary");
-		Location mountains = new Location("a palce where there is a gaint peaks and snow capped montains",
+		riverHill = new Location("a wonderful connection with water and hill", "River Hill");
+		lake = new Location("a place where you can heal your pain", "Lake Montana");
+		valley = new Location("a place where people live", "Arun Valley");
+		weaponary = new Blacksmith("a place where you can buy and exchange your weapons", "weaponary");
+		mountains = new Location("a palce where there is a gaint peaks and snow capped montains",
 				"Tall Mountains");
-		Location westros = new Location("where king resides", "New Kingdom");
-		Location citadale = new Location("house of terror", "Citadale");
-		Location arsenal = new Location("a factory for buying and selling weapons", "Arsenal");
+		westros = new Location("where king resides", "New Kingdom");
+		citadale = new Location("house of terror", "Citadale");
+		arsenal = new Blacksmith("a factory for buying and selling weapons", "Arsenal");
+
+		Dragon dungeonDragon = new Dragon("Huge and mamouth dragon that breath fire", "Monster Dragon");
 
 		// Connect Locations
 		// Add exits to the startup location
@@ -46,6 +58,8 @@ public class HardCodedData implements IMazeData {
 		riverHill.getExitCollection().addExit("east", new Exit("you see a valley full of people", valley));
 		riverHill.getExitCollection().addExit("south", new Exit("you see the only available weapon shop", weaponary));
 		riverHill.getExitCollection().addExit("north", new Exit("you are now back to the starting point", startUp));
+
+		// add some non playing character for combat
 
 		// Add exits to valley
 		valley.getExitCollection().addExit("east", new Exit("you are now at riverhill", riverHill));
