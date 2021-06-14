@@ -4,29 +4,33 @@ import mazegame.entity.utility.WeightLimit;
 
 public class FiniteInventory extends Inventory {
 	private double weightLimit;
-	
-	public FiniteInventory (int strength) {
-		super ();
+
+	public FiniteInventory(int strength) {
+		super();
 		this.setStrength(strength);
 	}
-	
-	public void setStrength (int strength) {
+
+	public void setStrength(int strength) {
 		weightLimit = (double) WeightLimit.getInstance().getModifier(strength);
 	}
-	
-	public double getWeight () {
+
+	public double getWeight() {
 		double currentWeight = 0;
-		for (Item theItem: this.getItemList().values()) {
+		for (Item theItem : this.getItemList().values()) {
 			currentWeight += theItem.getWeight();
 		}
 		return currentWeight;
 	}
-	
-	public boolean addItem (Item theItem) {
+
+	public boolean addItem(Item theItem) {
 		if (weightLimit > theItem.getWeight() + getWeight()) {
 			return super.addItem(theItem);
 		}
 		return false;
+	}
+
+	public double getWeightLimit() {
+		return this.weightLimit;
 	}
 
 }

@@ -3,13 +3,13 @@ package mazegame.control;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
 public class Parser {
 	private ArrayList<String> dropWords;
 	private ArrayList<String> validCommands;
 
 	public Parser(ArrayList<String> validCommands) {
-		dropWords = new ArrayList<String>(Arrays.asList("an", "and", "the", "this", "to"));
+		dropWords = new ArrayList<String>(
+				Arrays.asList("an", "and", "the", "this", "to", "is", "your", "what", "how", "are", "you"));
 		this.validCommands = validCommands;
 	}
 

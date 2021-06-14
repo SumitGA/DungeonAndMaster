@@ -1,6 +1,8 @@
 package mazegame.control;
 
+import mazegame.entity.Blacksmith;
 import mazegame.entity.Dragon;
+import mazegame.entity.NonPlayerCharacter;
 import mazegame.entity.Player;
 
 public class CombatState extends CommandState {
@@ -15,8 +17,8 @@ public class CombatState extends CommandState {
 
 	@Override
 	public CommandState update(Player thePlayer) {
-		if (thePlayer.getCurrentLocation() instanceof Dragon)
-			return this;
+		if(thePlayer.getCurrentLocation() instanceof Blacksmith)
+			return new CommerceState();
 		return new MovementState();
 	}
 

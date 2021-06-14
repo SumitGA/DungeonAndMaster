@@ -6,6 +6,7 @@ public abstract class Item {
 	private int value;
 	private double weight;
 	private String description;
+	boolean equiped;
 
 	public Item (String label, int value, double weight, String description)
 	{
@@ -13,6 +14,7 @@ public abstract class Item {
 		this.value = value;
 		this.weight = weight;
 		this.description = description;
+		this.equiped = false;
 	}
 
 	public String getLabel() {
@@ -25,6 +27,11 @@ public abstract class Item {
 		return value;
 	}
 	
+	public void setValue(int value)
+	{
+		this.value = value;
+	}
+	
 	public double getWeight()
 	{
 		return weight;
@@ -35,4 +42,16 @@ public abstract class Item {
 		return description;
 	}
 	
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+	public boolean isEquiped() {
+		return equiped;
+	}
+
+	public void setEquiped(boolean equiped) {
+		this.equiped = equiped;
+	}
 }

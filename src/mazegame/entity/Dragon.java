@@ -1,11 +1,19 @@
 package mazegame.entity;
 
-public class Dragon extends Location {
-	public Dragon() {
+public class Dragon extends NonPlayerCharacter {
 
+	private Inventory storage;
+
+	public Dragon(String name) {
+		super(name);
+		storage = new Inventory();
 	}
 
-	public Dragon(String description, String label) {
-		super(description, label);
+	public void addItem(Item item) {
+		storage.addItem(item);
+	}
+
+	public Inventory getStorage() {
+		return storage;
 	}
 }
